@@ -1,16 +1,17 @@
 
 public class Runway {
 
-    private Aircraft[] ac; //an array of aircraft (could just use one Aircraft object, still TBD)
+    private Aircraft[] ac; //an array of aircraft
+    private int takeoffs, landings, totalWaitTime;
 
     public Runway()
     {
-        ac = new Aircraft[1]; //initialise the field
+        ac = new Aircraft[2]; //initialise the field
     }
 
-    public void addAircraft(Aircraft ac)
+    public void addAircraft(Aircraft ac, int i)
     {
-        this.ac[0] = ac; //Aircraft object is passed into the method and the field value set
+        this.ac[i] = ac; //Aircraft object is passed into the method and the field value set
     }
 
     public String getAircraft()
@@ -24,7 +25,10 @@ public class Runway {
 
     public void removeAircraft()
     {
-        this.ac[0] = null; //set field ac to null, making the runway empty
+        for (int i = 0; i < ac.length; i++)
+        {
+            this.ac[i] = null; //set field ac to null, making the runway empty
+        }
     }
 
     public boolean isEmpty()
@@ -32,15 +36,43 @@ public class Runway {
         return ac[0] == null;
     }
 
-    public void process()
+    public void process(AircraftQueue lnq)
     {
         if (!isEmpty())
         { //if the runway is not empty
             ac[0].countdown(); //decrement the count representing takeoff or landing
             if (ac[0].getCount() == 0)
-            { //if count is zero, Aircraft has taken off / landed. remove it from the runway
-                removeAircraft();
+            { //if count is zero, Aircraft has taken off / landed.
+                if (ac[0].isTakingOff())
+                {
+                    if (ac[0].needsTowing())
+                    { // check to see if plane is being towed
+                        ac[1].setFuel(40); // set towing aircraft to have 20 mins of fuel
+                        lnq.addAircraft(ac[1]); // add towing aircraft to the landing queue
+                    }
+                    takeoffs++; // increment total number of takeoffs
+                } else if (ac[0].isLanding())
+                {
+                    landings++; // increment total number of landings
+                }
+                totalWaitTime += ac[0].getWaitingTime();
+                removeAircraft(); // remove aircraft from the runway
             }
         }
+    }
+
+    public int getTakeOffs()
+    {
+        return takeoffs;
+    }
+
+    public int getLandings()
+    {
+        return landings;
+    }
+
+    public int getTotalWait()
+    {
+        return totalWaitTime;
     }
 }

@@ -2,11 +2,9 @@
 public class FuelledCraft extends Aircraft {
 
     private int fuel;
-    private boolean crashed;
 
     public FuelledCraft()
     {
-        crashed = false;
     }
 
     public int getFuel()
@@ -20,15 +18,16 @@ public class FuelledCraft extends Aircraft {
     }
 
     public void depleteFuel()
-    {
+    { //deplete fuel by 1.  if fuel is 0 then the plane will crash
         fuel--;
-    }
-
-    public void crashed()
-    {
-        if (fuel == 0 && isTakingOff()) //if there's no fuel and the plane has taken off...
+        if (fuel <= 0)
         {
             crashed = true;
         }
+    }
+
+    public boolean needsTowing()
+    {
+        return false; // fuelled aircraft do not need towing along the runway to take off
     }
 }

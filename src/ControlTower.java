@@ -5,62 +5,38 @@ public class ControlTower {
     {
     }
 
-    public void manageQueues(TakeoffQueue takeoff, LandingQueue landing, Runway runway)
+    public void manageQueues(AircraftQueue takeoff, AircraftQueue landing, Runway runway)
     {
         if (runway.isEmpty())
         { //if there is no aircraft currently taking off or landing
-
             if (landing.isEmpty())
             {  //landing queue takes priority so do nothing here if there are planes waiting to land
-
-                if (takeoff.getHeadOfQueue() instanceof Commercial)
-                { //if the aircraft at the head of the queue is commercial
-                    System.out.println("Commercial aircraft is at the front of the takeoff queue"); //debug info
-                    takeoff.getHeadOfQueue().setCount(4); //set number of steps to take off
-                    //takeoff.getHeadOfQueue().setName("tko_"); //debug info
-                    runway.addAircraft(takeoff.getHeadOfQueue()); //add the aircraft to the runway
-                    takeoff.removeAircraft(); //remove aircraft from queue
-                } else if (takeoff.getHeadOfQueue() instanceof LightAircraft)
-                { //if the aircraft at the head of the queue is a light aircraft
-                    System.out.println("Light aircraft is at the front of the takeoff queue"); //debug info
-                    takeoff.getHeadOfQueue().setCount(4); //set number of steps to take off
-                    //takeoff.getHeadOfQueue().setName("tko_"); //debug info
-                    runway.addAircraft(takeoff.getHeadOfQueue()); //add the aircraft to the runway
-                    takeoff.removeAircraft(); //remove aircraft from queue
-                } else if (takeoff.getHeadOfQueue() instanceof Glider)
-                { //if the aircraft at the head of the queue is a glider
-                    System.out.println("Glider is at the front of the takeoff queue"); //debug info
-                    takeoff.getHeadOfQueue().setCount(6); //set number of steps to take off
-                    //takeoff.getHeadOfQueue().setName("tko_"); //debug info
-                    runway.addAircraft(takeoff.getHeadOfQueue()); //add the aircraft to the runway
-                    takeoff.removeAircraft(); //remove aircraft from queue
-                    //also need to add light aircraft to landing queue, or to runway then landing queue (not implemented yet)
+                if (!takeoff.isEmpty())
+                {
+                    Aircraft headAC = takeoff.getHeadOfQueue(); // store head of queue in local variable
+                    System.out.println(headAC.getName() + " aircraft is at the front of the takeoff queue"); //debug info
+                    headAC.setTakeoffCount(); //set number of steps to take off
+                    runway.addAircraft(headAC, 0); //add the aircraft to the runway
+                    if (headAC.needsTowing())
+                    { // if aircraft needs towing
+                        Aircraft ac = new LightAircraft(); // create new light aircraft
+                        ac.setPrefix("tw_");
+                        runway.addAircraft(ac, 1); // add light aircraft to the runway to tow the aircraft
+                    }
+                    takeoff.removeHeadOfQueue(); //remove aircraft from queue
                 }
             } else
             { //if there are planes waiting to land
-                if (landing.getHeadOfQueue() instanceof Commercial)
-                { //if the aircraft at the head of the queue is commercial
-                    System.out.println("Commercial aircraft is landing"); //debug info
-                    landing.getHeadOfQueue().setCount(6); //set number of steps to land
-                    //landing.getHeadOfQueue().setName("lnd_"); //debug info
-                    runway.addAircraft(landing.getHeadOfQueue()); //add the aircraft to the runway
-                    landing.removeAircraft(); //remove aircraft from queue
-                } else if (landing.getHeadOfQueue() instanceof LightAircraft)
-                { //if the aircraft at the head of the queue is a light aircraft
-                    System.out.println("Light aircraft is landing"); //debug info
-                    landing.getHeadOfQueue().setCount(6); //set number of steps to land
-                    //landing.getHeadOfQueue().setName("lnd_"); //debug info
-                    runway.addAircraft(landing.getHeadOfQueue()); //add the aircraft to the runway
-                    landing.removeAircraft(); //remove aircraft from queue
-                } else if (landing.getHeadOfQueue() instanceof Glider)
-                { //if the aircraft at the head of the queue is a glider
-                    System.out.println("Glider is landing"); //debug info
-                    landing.getHeadOfQueue().setCount(8); //set number of steps to land
-                    //landing.getHeadOfQueue().setName("lnd_"); //debug info
-                    runway.addAircraft(landing.getHeadOfQueue()); //add the aircraft to the runway
-                    landing.removeAircraft(); //remove aircraft from queue
-                }
+                Aircraft headAC = landing.getHeadOfQueue(); // store head of queue in local variable
+                System.out.println(headAC.getName() + " aircraft is landing"); //debug info
+                headAC.setLandCount(); //set number of steps to land
+                runway.addAircraft(headAC, 0); //add the aircraft to the runway
+                landing.removeHeadOfQueue(); //remove aircraft from queue
             }
         }
     }
 }
+
+
+
+
