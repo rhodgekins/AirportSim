@@ -5,11 +5,10 @@ public class Commercial extends Aircraft {
 
     public Commercial()
     {
-
     }
 
     public String toString()
     {
-        return name + super.toString();
+        return super.toString() + name;
     }
 }
