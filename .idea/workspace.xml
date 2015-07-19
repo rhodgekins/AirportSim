@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f38f43e1-920a-4c89-9c35-4a8c5bcdec5e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="D:\Documents\Programming\Java\AirportSim\.idea\workspace.xml" afterPath="" />
     </list>
     <ignored path="AirportSim.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -412,7 +412,13 @@
       <option name="project" value="LOCAL" />
       <updated>1437347753243</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Reset source files">
+      <created>1437349173755</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1437349173755</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
