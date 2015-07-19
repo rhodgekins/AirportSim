@@ -5,6 +5,6 @@ public class LightAircraft extends Aircraft {
 
     public String toString()
     {
-        return name + super.toString();
+        return super.toString() + name;
     }
 }

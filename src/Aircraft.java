@@ -9,6 +9,7 @@ public class Aircraft {
 
     public Aircraft()
     {
+        name = "";
     }
 
     public String getName()
@@ -63,7 +64,7 @@ public class Aircraft {
 
     public String toString()
     {
-        return "" + number;
+        return name;
     }
 
     public void setName(String name)

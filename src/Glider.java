@@ -5,11 +5,10 @@ public class Glider extends Aircraft {
 
     public Glider()
     {
-
     }
 
     public String toString()
     {
-        return name + super.toString();
+        return super.toString() + name;
     }
 }

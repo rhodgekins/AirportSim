@@ -1,10 +1,10 @@
 
-public class MechanicalCraft extends Aircraft {
+public class FuelledCraft extends Aircraft {
 
     private int fuel;
     private boolean crashed;
 
-    public MechanicalCraft()
+    public FuelledCraft()
     {
         crashed = false;
     }
