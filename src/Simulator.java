@@ -17,7 +17,7 @@ public class Simulator {
             p = Integer.parseInt(args[0]);
         }
 
-        int numberOfSteps = 100;  // By default, run for 2880 steps (24 hours, 30 min per step)
+        int numberOfSteps = 100; // By default, run for 2880 steps (24 hours, 30 min per step)
         if (args.length >= 2)
         {
             numberOfSteps = Integer.parseInt(args[1]);
