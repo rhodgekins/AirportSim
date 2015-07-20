@@ -2,6 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f38f43e1-920a-4c89-9c35-4a8c5bcdec5e" name="Default" comment="">
+      <change type="DELETED" beforePath="D:\Documents\Programming\Java\AirportSim\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\Programming\Java\AirportSim\.idea\codeStyleSettings.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\Programming\Java\AirportSim\.idea\compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\Programming\Java\AirportSim\.idea\copyright\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\Programming\Java\AirportSim\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\Programming\Java\AirportSim\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\Documents\Programming\Java\AirportSim\.idea\vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Documents\Programming\Java\AirportSim\.idea\workspace.xml" afterPath="" />
     </list>
     <ignored path="AirportSim.iws" />
@@ -100,7 +107,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -134,8 +140,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AirportSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AirportSim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
